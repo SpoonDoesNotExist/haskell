@@ -43,6 +43,15 @@ fibonacci n
   | n < 0 = fibHelper n 1 1 1
   | otherwise = fibHelper n 1 1 0
 
+helper2 n s1 s2
+  | n == 0 = s1
+  | n == 1 = s2
+  | n > 1 = helper2 (n - 1) s1 (s1 + s2)
+  | n < 0 = helper2 (n + 1) (s2 - s1) s1
+
+fibonacci2 :: Integer -> Integer
+fibonacci2 n = helper2 n 0 1
+
 -- Perfomance difference on M1/16
 -- ghci> fibonacciBi 35
 -- 9227465
