@@ -18,10 +18,11 @@ module TypeClasses where
 --     (/=) p1 p2 = False
 
 -- Printable type class
-
+-- Type class for printing type values
 class Printable a where
   toString :: a -> String
 
+-- instantiate Bool from Printable
 instance Printable Bool where
   toString a
     | a = "true"
