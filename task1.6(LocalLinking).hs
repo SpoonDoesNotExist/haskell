@@ -1,5 +1,6 @@
 import Type.Reflection
 
+-- Find roots of square equation using `let`
 roots :: Double -> Double -> Double -> (Double, Double)
 roots a b c =
   let d = sqrt $ b ^ 2 - 4 * a * c
@@ -8,6 +9,8 @@ roots a b c =
       x2 = (-b + d) / aTwice
    in (x1, x2)
 
+
+-- Find roots of square equation using `where`
 roots' a b c = (x1, x2)
   where
     d = sqrt $ b ^ 2 - 4 * a * c
@@ -19,7 +22,7 @@ rootsDiff a b c =
   let (x1, x2) = roots a b c
    in x2 - x1
 
--- Recurrent sequence
+-- Recurrent sequence: a0=1; a1=2; a2=3; a(k+3) = a(k+2) + a(k+1) - 2 * a(k)
 seqA :: Int -> Int
 seqA n =
   let helper 0 a0 a1 a2 = a0
